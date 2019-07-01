@@ -12,3 +12,8 @@
         restart: yes
         include_sub_features: yes
         include_management_tools: yes
+        include_application_development : yes
+        include_security: yes
+        include_performance: yes
+        include_health_and_diagnostics: yes
+        include_common_http_futures: yes
