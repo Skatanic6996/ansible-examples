@@ -1,0 +1,15 @@
+---
+- name: Install by MSI 
+  hosts: all 
+ 
+  tasks:
+    - name: Download installer
+      win_get_url:
+        url: 'https://the.earth.li/~sgtatham/putty/latest/w64/putty-64bit-0.72-installer.msi'
+        dest: 'C:\Users\Adm\Downloads\putty-64bit-0.72-installer.msi'
+
+    - name: Install MSI
+      win_package: 
+        path: 'C:\Users\Adm\Downloads\putty-64bit-0.72-installer.msi'
+        state: present
+        
