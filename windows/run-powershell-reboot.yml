@@ -5,4 +5,4 @@
   gather_facts: false
   tasks:
     - name: Run powershell script
-      win_shell: c:\users\adm\downoalds\shell.ps1
+       script: files/shellrebootpc.ps1
