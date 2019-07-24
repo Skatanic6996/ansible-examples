@@ -5,4 +5,4 @@
   gather_facts: false
   tasks:
     - name: Run powershell script
-       script: /var/lib/awx/projects/_14__powershell_reboot/windows/files/shellrebootpc.ps1
+      script: /var/lib/awx/projects/_14__powershell_reboot/windows/files/shellrebootpc.ps1
