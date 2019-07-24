@@ -14,10 +14,9 @@
         include_performance: yes
         include_health_and_diagnostics: yes
         include_common_http_futures: yes
-        
- --- 
-- 
-  name: "Return information about an existing application pool"
+
+
+- name: "Return information about an existing application pool"
   win_iis_webapppool: 
     managedPipelineMode: Integrated
     managedRuntimeVersion: v4.0
@@ -25,4 +24,8 @@
     attributes:
       queueLength: 65535
       startMode: AlwaysRunning
-      state: statrted  
+      state: Started 
+      idleTimeout: 0
+      rapidFailProtextion: false
+      regularTimeInterval: 0
+      
