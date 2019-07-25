@@ -1,0 +1,4 @@
+- name: Warn logged in users of impending upgrade
+  win_msg:
+    display_seconds: 60
+    msg: UPYACHKA PISCH PISCH TEBYA POPYATILI
