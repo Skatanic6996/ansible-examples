@@ -1,37 +1,44 @@
-hosts: all
-gather_facts: false
-tasks:
-    win_feature:
-      name: "Web-Server"
-      state: present
-      restart: yes
-      include_sub_features: yes
-      include_management_tools: yes
-      include_application_development : yes
-      include_security: yes
-      include_performance: yes
-      include_health_and_diagnostics: yes
-      include_common_http_futures: yes
-      
-   win_file:
-    path: C:\WEB\TEMP
+--- 
+- 
+  gather_facts: false
+  hosts: all
+  name: "Install IIS"
+  tasks: 
+    - 
+      name: "Install IIS"
+      win_feature: 
+        include_application_development: true
+        include_common_http_futures: true
+        include_health_and_diagnostics: true
+        include_management_tools: true
+        include_performance: true
+        include_security: true
+        include_sub_features: true
+        name: Web-Server
+        restart: true
+        state: present
+- 
+  name: "Create directory structure"
+  win_file: 
+    path: "C:\\WEB\\TEMP"
     state: directory
-    
-  win_acl:
-    user: everyone
-    path: C:\WEB\TEMP
-    type: allow
+- 
+  name: "Give rights to folder"
+  win_acl: 
+    path: "C:\\WEB\\TEMP"
     rights: fullcontrol
-    
+    type: allow
+    user: everyone
+- 
+  name: "Return information about an existing application pool"
   win_iis_webapppool: 
+    attributes: 
+      idleTimeout: 0
+      queueLength: 65535
+      rapidFailProtextion: false
+      regularTimeInterval: 0
+      startMode: AlwaysRunning
+      state: Started
     managedPipelineMode: Integrated
     managedRuntimeVersion: v4.0
     name: DefaultAppPool
-    attributes:
-      queueLength: 65535
-      startMode: AlwaysRunning
-      state: Started 
-      idleTimeout: 0
-      rapidFailProtextion: false
-      regularTimeInterval: 0
-      
