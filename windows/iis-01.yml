@@ -1,5 +1,4 @@
 ---
-  gather_facts: false
   hosts: all
   tasks: 
     win_feature: 
