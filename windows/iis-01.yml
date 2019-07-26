@@ -4,8 +4,7 @@
   hosts: all
   name: "Install IIS"
   tasks: 
-    - 
-      name: "Install IIS"
+    - name: "Install IIS"
       win_feature: 
         include_application_development: true
         include_common_http_futures: true
