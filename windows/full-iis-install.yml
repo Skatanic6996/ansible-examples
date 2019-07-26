@@ -19,7 +19,12 @@
   win_file:
     path: C:\WEB\TEMP
     state: directory
-   
+- name: Give rights to folder
+  win_acl:
+    user: everyone
+    path: C:\WEB\TEMP
+    type: allow
+    rights: fullcontrol
 
     
 - name: "Return information about an existing application pool"
