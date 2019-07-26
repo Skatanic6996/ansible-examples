@@ -1,0 +1,39 @@
+- name: Install IIS
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Install IIS
+      win_feature:
+        name: "Web-Server"
+        state: present
+        restart: yes
+        include_sub_features: yes
+        include_management_tools: yes
+        include_application_development : yes
+        include_security: yes
+        include_performance: yes
+        include_health_and_diagnostics: yes
+        include_common_http_futures: yes
+
+  win_file:
+    path: C:\WEB\TEMP
+    state: directory
+    
+  win_acl:
+    user: everyone
+    path: C:\WEB\TEMP
+    type: allow
+    rights: fullcontrol
+    
+  win_iis_webapppool: 
+    managedPipelineMode: Integrated
+    managedRuntimeVersion: v4.0
+    name: DefaultAppPool
+    attributes:
+      queueLength: 65535
+      startMode: AlwaysRunning
+      state: Started 
+      idleTimeout: 0
+      rapidFailProtextion: false
+      regularTimeInterval: 0
+      
