@@ -1,6 +1,4 @@
----
-  hosts: all
-  tasks: 
+--- 
     win_feature: 
         include_application_development: true
         include_common_http_futures: true
