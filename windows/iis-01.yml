@@ -1,36 +1,27 @@
---- 
-- 
-  gather_facts: false
-  hosts: all
-  name: "Install IIS"
-  tasks: 
-    - 
-      name: "Install IIS"
-      win_feature: 
-        include_application_development: true
-        include_common_http_futures: true
-        include_health_and_diagnostics: true
-        include_management_tools: true
-        include_performance: true
-        include_security: true
-        include_sub_features: true
-        name: Web-Server
-        restart: true
-        state: present
-- 
-  name: "Create directory structure"
+---  
+  - name: "Install IIS"
+    win_feature: 
+      include_application_development: true
+      include_common_http_futures: true
+      include_health_and_diagnostics: true
+      include_management_tools: true
+      include_performance: true
+      include_security: true
+      include_sub_features: true
+      name: Web-Server
+      restart: true
+      state: present
+- name: "Create directory structure"
   win_file: 
     path: "C:\\WEB\\TEMP"
     state: directory
-- 
-  name: "Give rights to folder"
+-   name: "Give rights to folder"
   win_acl: 
     path: "C:\\WEB\\TEMP"
     rights: fullcontrol
     type: allow
     user: everyone
-- 
-  name: "Return information about an existing application pool"
+-   name: "Return information about an existing application pool"
   win_iis_webapppool: 
     attributes: 
       idleTimeout: 0
