@@ -15,8 +15,8 @@
   win_file: 
     path: "C:\\WEB\\TEMP"
     state: directory
--   name: "Give rights to folder"
-  win_acl: 
+  - name: "Give rights to folder"
+    win_acl: 
     path: "C:\\WEB\\TEMP"
     rights: fullcontrol
     type: allow
