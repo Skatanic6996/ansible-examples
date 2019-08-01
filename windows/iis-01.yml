@@ -37,6 +37,6 @@
           queueLength: 65535
           rapidFailProtextion: false
           regularTimeInterval: 0
-          startMode: AlwaysRunning
+          startMode: alwaysRunning
           state: Started
 
