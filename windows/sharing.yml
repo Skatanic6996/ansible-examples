@@ -1,20 +1,24 @@
 ---
 
-- name: Create directory structure
-  win_file: 
-    path: "C:\\WEB\\TEMP"
-    state: directory
-- name: Give rights to folder
-  win_acl: 
-    path: "C:\\WEB\\TEMP"
-    rights: fullcontrol
-    type: allow
-    user: everyone 
-- name: Add public company share
-  win_share:
-    name: it.ua
-    description: test322
-    path: C:\WEB\TEMP
-    list: yes
-    full: domainAdmins,skichko
-    read: Global    
+- name: Run powershell script
+  hosts: all 
+  gather_facts: false
+  tasks:
+    - name: Create directory structure
+      win_file: 
+        path: "C:\\WEB\\TEMP"
+        state: directory
+    - name: Give rights to folder
+      win_acl: 
+        path: "C:\\WEB\\TEMP"
+        rights: fullcontrol
+        type: allow
+        user: everyone 
+    - name: Add public company share
+      win_share:
+        name: it.ua
+        description: test322
+        path: C:\WEB\TEMP
+        list: yes
+        full: domainAdmins,skichko
+        read: Global    
