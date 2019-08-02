@@ -19,11 +19,11 @@
         include_common_http_futures: yes  
     - name: Create directory structure
       win_file: 
-        path: "C:\WEB\TEMP"
+        path: "C:\\WEB\\TEMP"
         state: directory
     - name: Give rights to folder
       win_acl: 
-        path: "C:\WEB\TEMP"
+        path: "C:\\WEB\\TEMP"
         rights: fullcontrol
         type: allow
         user: everyone 
